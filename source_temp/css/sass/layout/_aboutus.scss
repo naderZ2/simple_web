@@ -1,0 +1,102 @@
+.aboutus {
+    @include section;
+    .item {
+        @media (max-width: 991px) {
+            max-width: $fullwidth;
+            flex: $fullwidth;
+        }
+        img {
+            width: $fullwidth;
+            min-height: $fullwidth;
+        }
+    }
+    .text-contant {
+        display: flex;
+        align-items: center;
+        min-height: 330px;
+        @media (max-width: 991px) {
+            margin-top: $minmargin;
+        }
+        .title {
+            @include title;
+            text-align: $left;
+            &:before {
+                display: $none;
+            }
+        }
+        p.text {
+            margin-top: $minmargin;
+            font-weight: 600;
+        }
+    }
+}
+
+.our-team {
+    @include section;
+    background: $ofwhite url(../images/clients.jpg) repeat;
+    .title {
+        @include title;
+    }
+    p.text-center {
+        margin-top: $maxmargin;
+    }
+    .item {
+        margin-top: $maxmargin;
+        @media (max-width: 991px) {
+            max-width: 50%;
+            flex: 50%;
+            margin-top: $minmargin;
+        }
+        @media (max-width: 400px) {
+            max-width: $fullwidth;
+            flex: $fullwidth;
+        }
+        .inner {
+            @include style-inner;
+            text-align: center;
+            padding: $maxmargin $minmargin;
+            img {
+                width: 110px;
+                height: 110px;
+                @include border-radius(50%);
+            }
+            .title {
+                font-size: 18px;
+                font-weight: 600;
+                margin: 8px $zero $zero $zero;
+                &::before {
+                    display: $none;
+                }
+            }
+            .sku {
+                font-size: 14px;
+                color: $colorselect;
+            }
+            p {
+                height: 50px;
+                overflow: hidden;
+            }
+        }
+    }
+}
+
+.privacy-policy {
+    @extend .aboutus;
+    background: $ofwhite;
+    .inner {
+        @include style-inner;
+        padding: $maxmargin;
+        .title {
+            @include title;
+            text-align: $left;
+            &::before {
+                display: $none;
+            }
+        }
+        p {
+            margin-top: $minmargin;
+        }
+    }
+}
+
+//  End AboutUs

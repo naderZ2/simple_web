@@ -1,0 +1,258 @@
+
+@mixin reset {
+  margin:         $zero;
+  padding:        $zero;
+  border:         $zero;
+  text-decoration:$none;
+  list-style:     $none;
+  font-size:      $fontsize;
+  line-height:    $lineheight;
+  color:          $colortext;
+  font-family: 'Cairo', sans-serif;
+}
+@mixin position($position, $top: null, $right: null, $bottom: null, $left: null) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+@mixin overlay{
+  content: '';
+  @include position(absolute, $top: 0, $left:0 , $right:auto , $bottom:auto);
+  width: $fullwidth;
+  height: $fullwidth;
+}
+@mixin section {
+  float: $right;
+  width: $fullwidth;
+  padding: $maxmargin $zero;
+  @include position(relative);
+  @media (max-width:991px) {
+    padding: $minmargin $zero;
+   }
+ }
+@mixin flex {
+  display: flex;
+  align-items: $senter;
+  justify-content:  $senter;
+}
+@mixin transition($transition...) {
+  -moz-transition:    $transition;
+  -o-transition:      $transition;
+  -webkit-transition: $transition;
+  transition:         $transition;
+}
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+  background-clip: padding-box;
+}
+@mixin rotate($degrees) {
+  -webkit-transform: rotate($degrees);
+  -moz-transform: rotate($degrees);
+  -ms-transform: rotate($degrees);
+  -o-transform: rotate($degrees);
+  transform: rotate($degrees);
+}
+@mixin scale($degscale) {
+  -webkit-transform: scale($degscale);
+  -moz-transform: scale($degscale);
+  -ms-transform: scale($degscale);
+  -o-transform: scale($degscale);
+  transform: scale($degscale);
+}
+@mixin bottom{
+    display:$inline;
+    @include position(relative);
+    padding:10px $minmargin;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    overflow: hidden;
+    color: $white;
+    outline: $none;
+    outline-style: $none;
+    border: $zero;
+    background:#00a1d9;
+    text-align: $senter;
+    @include transition(all 0.5s ease-in-out 0s);
+    cursor: pointer;
+    margin-top: $minmargin;
+    @include border-radius(4px);
+   &:before {
+    content: "";
+    @include position(absolute, $top: 0, $left:0 , $right:0 , $bottom:0);
+    z-index: -1;
+    background:$blue;
+    @include scale(0);
+    @include transition(all 0.6s ease-in-out 0s);
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+  }
+  &:hover:before {
+    @include scale(2);
+  }
+  &:hover{
+    color: $white;
+  }
+}
+@mixin prefixer ($property, $value, $prefixes: ()) {
+    @each $prefix in $prefixes {
+        #{'-' + $prefix + '-' + $property}: $value;
+    }
+    #{$property}: $value;
+}
+@mixin keyFrame ($animation-name) {
+
+   @-webkit-keyframes  #{$animation-name}{
+    @content;
+   }
+
+
+   @-moz-keyframes  #{$animation-name}{
+    @content;
+   }
+
+   @keyframes  #{$animation-name}{
+    @content;
+   }
+
+}
+@mixin social {
+    float: $left;
+    a {
+       float: $left;
+       width:35px;
+       height: 35px;
+       text-align:$senter;
+       padding: 10px $zero;
+       margin-right: 3px;
+       @include transition(all 0.5s ease-in-out 0s);
+       color: $white;
+       @include border-radius(50%);
+       @each $type in $social {
+       &.icon-#{nth($type, 1)} {
+       background-color: nth($type, 2);
+       &:hover {
+       background-color:$white;
+       color: nth($type, 2);
+       @include prefixer (box-shadow, 0px 1px 1px #b3b3b3, webkit moz o ms);
+     }
+    }
+   }
+  }
+}
+@mixin input {
+  height: 50px;
+  @include border-radius(0px);
+}
+@mixin title{
+  font-size:30px;
+  width: $fullwidth;
+  text-align: $senter;
+  color: $blak;
+  @include position(relative);
+  padding-bottom: 5px;
+  @media (max-width:991px) {
+   font-size:22px;
+   padding-bottom: $zero;
+   }
+
+ &:before {
+   content: '';
+   @include position(absolute,  $right:0px ,$left:0px, $bottom:-15px);
+   z-index: 1;
+   width: 60px;
+   height: 3px;
+   background:$blue;
+   z-index: 2;
+   margin: $zero $auto;
+  }
+}
+@mixin map-back {
+  @include section;
+  height:250px;
+  padding: $zero;
+  background:$white url(../images/slides/img3.jpg) no-repeat fixed center center/cover;
+  @include flex;
+  margin-top: -30px;
+  @media (max-width:991px) {
+    height:150px;
+   }
+  &:before{
+   @include overlay;
+   background-color:rgba(0, 0, 0, 0.50);
+  }
+  .branimg{
+    margin: $zero $auto;
+    width: 80px;
+    height: 80px;
+    padding: 10px;
+    overflow: hidden;
+    @include border-radius(50%);
+    @include flex;
+    background: $white;
+    margin-bottom: $minmargin;
+    @media (max-width:991px) {
+      width: 60px;
+      height: 60px;
+      padding: 5px;
+      margin: 20px $auto 5px $auto;
+    }
+    img{
+      max-width: $fullwidth;
+      max-height: $fullwidth;
+    }
+  }
+
+ .title{
+   @include title;
+   color: $white;
+   padding: $zero;
+   margin-top: $zero;
+   &:before{
+     display: $none;
+   }
+   @media (max-width:991px) {
+    font-size: 22px;
+    }
+  }
+}
+@mixin form {
+  .inputcomant{
+    margin-bottom: $minmargin;
+    &:last-child{
+      margin-bottom: $zero;
+    }
+    .form-control{
+      @include input;
+     }
+     textarea.form-control{
+       height:120px;
+       resize: $none;
+     }
+     .bottom{
+       @include bottom;
+     }
+  }
+}
+@mixin hyprlink {
+  display: $inline;
+  width:  50%;
+  @include position(relative);
+  padding-right: 10px;
+  @include transition(all 0.5s ease-in-out 0s);
+  &:before {
+    @include position(absolute,$top:3px,$right:0);
+    font-family: "Font Awesome 5 Free";
+    content: "\f104";
+    display: $inline;
+    font-weight:900;
+    font-size: 13px;
+   }
+   &:hover{
+     color: $yellow;
+   }
+}

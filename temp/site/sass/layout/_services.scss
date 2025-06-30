@@ -1,0 +1,217 @@
+.services{
+  @include section;
+  .title{
+    @include title;
+    margin-bottom: $minmargin;
+   }
+
+
+   .serv-itme{
+     margin-top:$maxmargin;
+     text-align: $senter;
+     @media (max-width:991px) {
+       flex:50%;
+       max-width:50%;
+       margin-top: $minmargin;
+      }
+     @media (max-width:767px) {
+       flex:$fullwidth;
+       max-width:$fullwidth;
+      }
+    .maintenance{
+      float: $left;
+      @include position(relative);
+      width: $fullwidth;
+      overflow: hidden;
+       padding-top: 70%;
+      img{
+        @include position(absolute, $top: 0, $left:0 , $right:auto , $bottom:auto);
+        width: $fullwidth;
+        min-height: $fullwidth;
+        @include transition(all 0.5s ease-in-out 0s);
+      }
+      .overlay{
+        @include overlay;
+        height: 125px;
+        top: $auto;
+        bottom: $zero;
+        text-align: $senter;
+        padding: 80px $minmargin  $minmargin $minmargin;
+        @include transition(all 0.5s ease-in-out 0s);
+        background: url(../images/overlay.png)  repeat-x;
+        h2{
+         font-size: 23px;
+         color: $white;
+        }
+      }
+      &:hover img{
+      @include scale(1.15);
+      }
+    }
+  }
+}
+/// End Section Services
+.brands{
+ @extend .services ;
+ background:$blue url(../images/aboutus-s.jpg) no-repeat fixed top center/cover;
+ .brand-itme{
+   @extend .serv-itme ;
+   .logobeand{
+      float: $left;
+      @include position(relative);
+      width: $fullwidth;
+      padding: 50px $zero;
+      overflow: hidden;
+      @include prefixer (box-shadow,0px 0px 3px #d0d0d0, webkit moz o ms);
+       
+      img{
+        max-width: $fullwidth;
+        max-height:70px;
+     }
+   }
+ }
+}
+/// End Brands
+.brand-details{
+  @extend .aboutus ;
+  .details-it{
+    @extend .aboutus-it ;
+  }
+ }
+/// End Brand Details
+.brand-video{
+ @include section;
+ background: $blue;
+ padding: 60px $zero;
+ .video {
+  margin: $zero $auto;
+	width: 800px;
+	height: 450px;
+	position: relative;
+	@include border-radius(25px);
+  overflow: hidden;
+  @include flex;
+  background: #00a1d9;
+  @include prefixer (box-shadow,0px 16px 31px #00000066, webkit moz o ms);
+  @media (max-width:991px) {
+      flex:$fullwidth;
+      max-width:$fullwidth;
+      height: 300px;
+    }
+  &:after{
+    @include overlay;
+  }
+  img {
+   @include position(absolute,$left:0);
+	 max-width: $fullwidth;
+	 max-height: $fullwidth;
+  }
+ .cd-single-point {
+    @include position(absolute,$top:40%,$left:0,$right: 0);
+    list-style-type: $none;
+    width: 80px;
+    margin: $zero  $auto;
+    cursor: pointer;
+    text-align: $senter;
+    z-index: 20;
+    &::after {
+      content: '';
+      @include position(absolute,$top:0,$left:0, );
+      border-radius: 50%;
+      width: $fullwidth;
+      height:$fullwidth;
+    	animation: cd-pulse 2s infinite;
+    }
+    .cd-img-replace {
+      position: relative;
+      z-index: 2;
+      display: $block;
+      width: 80px;
+      height: 80px;
+      @include border-radius(50%);
+     	background:rgba(3, 47, 82, 0.65);
+      @include transition(all 0.2s ease-in-out 0s);
+   } 
+   .innerbc {
+      @include position(absolute,$top:10px,$left:10px );
+      width: 60px;
+      height: 60px;
+      @include border-radius(50%);
+      background: $white;
+      z-index: 10;
+      color:$yellow;
+      padding-top: 22px;
+       @keyframes cd-pulse {
+        0% {
+        box-shadow:0 0 0 0 $white;
+        }
+        100% {
+        box-shadow:0 0 0 30px rgba(255,150,44,0)
+        }
+      }
+    } 
+  }
+ }
+}
+
+.YouTubePopUp-Wrap {
+  @include position(fixed,$top:0px,$left:0px );
+	width: $fullwidth;
+  height:$fullwidth;
+	background:rgba(0, 0, 0, 0.92);
+  z-index: 9999999999999;
+  padding: $minmargin;
+  .YouTubePopUp-Content {
+    max-width: 680px;
+    display: $block;
+    margin: $zero $auto;
+    height:$fullwidth;
+    position: relative;
+    iframe {
+      @include position(absolute,$top:0px,$bottom:0px );
+      max-width: $fullwidth !important;
+      width:$fullwidth !important;
+      display: $block !important;
+      height: 480px !important;
+      border: $none !important;
+      @include border-radius(5px);     
+      margin: $auto $zero;
+      background: $white;
+      padding: $minmargin;  
+      @media (max-width:767px) {
+         height: 300px !important;
+      }  
+  }
+ }
+  .YouTubePopUp-Close {
+    @include position(absolute,$top:0px,$right:0px,$bottom: 528px);
+    cursor: pointer;  
+    margin: $auto $zero;
+    width: 24px;
+    height: 24px;
+    background: url(../images/icon-close-white.png) no-repeat;
+    background-size:  $fullwidth;
+    @include transition(all 0.5s ease-in-out 0s);
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}
+ 
+/// End Brand Video
+
+
+ 
+
+
+
+ 
+
+
+
+
+
+ 
+ 
+ 
+ 

@@ -1,0 +1,442 @@
+@import 'helpers/mixins';
+@import 'helpers/variables';
+@import 'layout/header';
+@import 'layout/slider';
+$direction:rtl;
+$right:left;
+$left:right;
+body {
+    direction: $direction;
+    text-align: $left;
+}
+
+.header {
+    .min-header {
+        .social {
+            direction: ltr;
+            a {
+                margin-right: $zero;
+                margin-left: 3px;
+            }
+        }
+        .linkstop {
+            a {
+                padding-right: $zero;
+                margin-right: $zero;
+                border-right: $zero;
+                padding-left: $minmargin;
+                margin-left: $minmargin;
+                border-left: 1px solid $blak;
+                &:last-child {
+                    padding: $zero;
+                    border: $zero;
+                    margin: $zero;
+                }
+                @media (max-width: 767px) {
+                    padding-right: $zero;
+                    margin-right: $zero;
+                    padding-left: 10px;
+                    margin-left: 10px;
+                }
+                i {
+                    margin-right: $zero;
+                    margin-left: 5px;
+                }
+            }
+        }
+    }
+    .menu {
+        #cssmenu {
+            float: $left;
+            margin-left: $zero;
+            margin-right: 25px;
+            @media (max-width: 1199px) {
+                margin-left: $zero;
+                margin-right: $minmargin+5px;
+            }
+            ul {
+                li {
+                    margin-right: $zero;
+                    margin-left: $maxmargin+10px;
+                    @include position(relative);
+                    @media (max-width: 1199px) {
+                        margin-right: $zero;
+                        margin-left: $maxmargin;
+                    }
+                    &:hover>ul {
+                        right: $auto;
+                    }
+                    a {
+                        &:after {
+                            content: "";
+                            @include position(absolute, $bottom: 0px, $left: auto, $right: 0px);
+                        }
+                    }
+                }
+                ul {
+                    @include position(absolute, $top: 100%, $left: auto, $right: -9999px);
+                    li {
+                        a {
+                            span {
+                                margin-right: $zero;
+                                margin-left: 8px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        /* End NavMenu */
+        .searchicon {
+            @media (max-width: 991px) {
+                @include position(absolute, $top: 11px, $right: auto, $left: 50px);
+            }
+        }
+        .showboxsearch {
+            .cancel-search {
+                @include position(absolute, $right: auto, $left: 30px);
+            }
+            .formsearch {
+                .form-control {
+                    padding: $zero $minmargin $zero 60px;
+                }
+                .btn {
+                    @include position(absolute, $right: auto, $left: 5px);
+                }
+            }
+        }
+        .bottom {
+            margin-left: $zero;
+            margin-right: $maxmargin+10px;
+            @media (max-width: 991px) {
+                margin: $zero;
+                margin-left: 65px;
+            }
+        }
+    }
+}
+
+@media (max-width:991px) {
+    .header {
+        .menu {
+            #cssmenu {
+                @include position(absolute, $right: auto, $left: 15px);
+                #menu-button {
+                    float: $right;
+                    &:after {
+                        @include position(absolute, $right: auto, $left: 0px);
+                    }
+                    &:before {
+                        @include position(absolute, $right: auto, $left: 0px);
+                    }
+                }
+                .submenu-button {
+                    @include position(absolute, $right: auto, $left: 0px);
+                    border-left: $zero;
+                    border-right: 1px solid rgba(120, 120, 120, 0.2);
+                }
+            }
+            #cssmenu ul ul,
+            #cssmenu ul ul ul,
+            #cssmenu.align-right ul ul {
+                left: auto;
+                right: 0px;
+            }
+        }
+    }
+}
+
+// End Header
+.title {
+    font-size: 24px !important;
+    @media (max-width: 991px) {
+        font-size: 22px !important;
+    }
+}
+
+.counter {
+    .count-it {
+        border-right: $zero;
+        border-left: 1px solid #53534d;
+        &:last-child {
+            border: $zero;
+        }
+    }
+}
+
+// End Counter
+.brands,
+.clients,
+.happy-clients {
+    .brands-slider,
+    .clients-slider {
+        @include slider-style;
+        direction: ltr;
+    }
+}
+
+.brand-item,
+.client-item {
+    direction: $direction;
+}
+
+.news {
+    .news-slider {
+        direction: ltr;
+    }
+}
+
+.news-itme {
+    direction: $direction;
+    .title-it {
+        font-size: 21px;
+    }
+}
+
+///* End Offers
+.footer {
+    .letarnews {
+        .item {
+            .title-con {
+                b {
+                    font-size: 24px;
+                }
+            }
+            .sendemail {
+                .form-control {
+                    padding: $zero $maxmargin $zero 100px;
+                    background: url(../images/email.png) no-repeat center right;
+                }
+                .bottom {
+                    @include position(absolute, $top: 0px, $right: auto, $left: -1px);
+                }
+            }
+        }
+    }
+    .boxfot {
+        .title {
+            text-align: $left;
+            font-size: 22px !important;
+        }
+        .navmenu {
+            a {
+                padding-left: $zero;
+                padding-right: 10px;
+                &:before {
+                    @include position(absolute, $left: auto, $right: 0);
+                    content: "\f104";
+                }
+            }
+        }
+        .social {
+            direction: ltr;
+            justify-content: flex-end;
+            a {
+                margin: $zero;
+                margin-left: 3px;
+            }
+        }
+        .textcontact {
+            a,
+            p {
+                padding-left: $zero;
+                padding-right: 25px;
+                &:last-child {
+                    margin: $zero;
+                }
+                i {
+                    @include position(absolute, $left: auto, $right: 0px);
+                }
+            }
+        }
+    }
+}
+
+.happy-clients {
+    .destext {
+        .title {
+            text-align: $left;
+        }
+        .map-text {
+            p,
+            a {
+                margin: $zero;
+                margin-right: 8px;
+            }
+        }
+        .social {
+            @include social;
+            margin-top: $minmargin+5px;
+        }
+    }
+}
+
+// End brands
+.maplink {
+    li {
+        a {
+            padding-right: $zero !important;
+            padding-left: $minmargin;
+            &:before {
+                @include position(absolute, $right: auto !important, $left: 2px !important);
+            }
+        }
+    }
+}
+
+.aboutus {
+    .text-contant {
+        .title {
+            text-align: $left;
+        }
+    }
+}
+
+.privacy-policy {
+    .inner {
+        .title {
+            text-align: $left;
+        }
+    }
+}
+
+//  End AboutUs
+.error404 {
+    .title {
+        font-size: 140px !important;
+        @media (max-width: 991px) {
+            font-size: 120px !important;
+        }
+    }
+}
+
+//* End Error404
+.lcl_outer_cmd #lcl_nav_cmd {
+    direction: ltr;
+}
+
+.brand-details {
+    .inner {
+        .item-details {
+            .feature {
+                img {
+                    margin-right: $zero;
+                    margin-left: 1px;
+                }
+            }
+            .title {
+                text-align: $left;
+                font-size: 22px !important;
+            }
+            .item-rat {
+                .last-rat {
+                    p {
+                        margin-left: $zero;
+                        margin-right: 10px;
+                    }
+                }
+                .stock {
+                    p {
+                        i {
+                            margin-right: $zero;
+                            margin-left: 5px;
+                        }
+                    }
+                }
+            }
+            .description {
+                .title {
+                    font-size: 12px;
+                }
+                .material-item {
+                    margin-top: 10px;
+                    a {
+                        margin-right: $zero;
+                        margin-left: 10px;
+                        @media (max-width: 400px) {
+                            margin-right: $zero;
+                            margin-left: 5px;
+                        }
+                        &:last-child {
+                            margin-left: $zero;
+                        }
+                    }
+                }
+                &.det-item {
+                    display: flex;
+                    @media (max-width: 400px) {
+                        display: $block;
+                    }
+                    .inner-item {
+                        .color-item {
+                            a {
+                                margin-right: $zero;
+                                margin-left: 10px;
+                                &:last-child {
+                                    margin: $zero;
+                                }
+                            }
+                        }
+                    }
+                }
+                &.price-prod {
+                    .title {
+                        margin-right: $zero;
+                        margin-left: $minmargin;
+                    }
+                    span {
+                        &.old {
+                            margin-right: $zero;
+                            margin-left: $minmargin;
+                            &::before {
+                                content: '';
+                                @include position(absolute, $right: auto, $left: 0px);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// End products-details
+.inner-bac {
+    .social {
+        direction: ltr;
+        justify-content: flex-end;
+        a {
+            margin: $zero !important;
+            margin-left: 3px !important;
+        }
+    }
+}
+
+.contactus {
+    .item {
+        .title {
+            text-align: $left;
+        }
+        .map-text {
+            p,
+            a {
+                margin-left: $zero;
+                margin-right: 8px;
+            }
+        }
+        .social {
+            direction: ltr;
+            justify-content: flex-end;
+            a {
+                margin: $zero !important;
+                margin-left: 3px !important;
+            }
+        }
+    }
+}
+
+.a2a_kit.a2a_kit_size_32.a2a_default_style {
+    display: flex;
+}
+
+// End contactus

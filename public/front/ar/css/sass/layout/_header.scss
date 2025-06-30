@@ -1,0 +1,492 @@
+.header {
+    width: $fullwidth;
+    position: relative;
+    z-index: 1000;
+    background: $white;
+    padding-bottom: $minmargin+5px;
+    @include transition(all 0.5s ease-in-out 0s);
+    @include prefixer (box-shadow, 0px 0px 10px rgba(0, 0, 0, 0.1), webkit moz o ms);
+    @media (max-width: 991px) {
+        padding-bottom: $minmargin;
+    }
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .min-header {
+        display: flex;
+        width: $fullwidth;
+        background: $ofwhite;
+        padding: 5px $zero;
+        margin-bottom: $minmargin+5px;
+        @media (max-width: 991px) {
+            margin-bottom: $minmargin;
+        }
+        @media (max-width: 767px) {
+            padding: 10px $zero;
+            .container {
+                justify-content: center;
+            }
+        }
+        .social {
+            @include social;
+            @media (max-width: 767px) {
+                display: $none;
+            }
+        }
+        .linkstop {
+            display: flex;
+            a {
+                display: flex;
+                height: 12px;
+                line-height: 12px;
+                padding-right: $minmargin;
+                margin-right: $minmargin;
+                border-right: 1px solid $blak;
+                @include transition(all 0.5s ease-in-out 0s);
+                position: relative;
+                &:last-child {
+                    padding: $zero;
+                    border: $zero;
+                    margin: $zero;
+                }
+                @media (max-width: 767px) {
+                    padding-right: 10px;
+                    margin-right: 10px;
+                    font-size: 13px;
+                }
+                i {
+                    margin-right: 5px;
+                    font-size: 13px;
+                }
+                &:hover {
+                    color: $green;
+                }
+            }
+        }
+    }
+    &.sticky {
+        @include position(fixed, $top: 0, $left: 0, $right: auto, $bottom: auto);
+        @include transition(all 0.5s ease-in-out 0s);
+        padding: 10px $zero;
+        margin-top: -50px;
+        @media (max-width: 767px) {
+            margin-top: -42px;
+        }
+        .menu #cssmenu ul ul {
+            padding-top: 17px;
+        }
+    }
+    .logo {
+        img {
+            width: 190px;
+            @media (max-width: 991px) {
+                width: 150px;
+            }
+        }
+    }
+    .menu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        #cssmenu {
+            float: $left;
+            @include position(relative);
+            z-index: 10;
+            margin-left: 25px;
+            @media (max-width: 1199px) {
+                margin-left: $minmargin+5px;
+            }
+            #menu-button {
+                display: $none;
+            }
+            ul {
+                li {
+                    display: $inline;
+                    margin-right: $maxmargin+10px;
+                    @include position(relative);
+                    @media (max-width: 1199px) {
+                        margin-right: $maxmargin;
+                    }
+                    &:hover>ul {
+                        left: $auto;
+                        z-index: ($zindex - 850);
+                        li {
+                            height: 45px;
+                        }
+                    }
+                    a {
+                        display: $block;
+                        @include position(relative);
+                        color: $blak;
+                        font-weight: 600;
+                        text-transform: uppercase;
+                        @include transition(all 0.5s ease-in-out 0s);
+                        outline: $none;
+                        &:after {
+                            content: "";
+                            @include position(absolute, $bottom: 0px, $left: 0px);
+                            width: 0;
+                            background: $green;
+                            height: 2px;
+                            @include transition(all 0.5s ease-in-out 0s);
+                        }
+                        i {
+                            font-size: 11px;
+                        }
+                        &:hover,
+                        &.active {
+                            color: $green;
+                            &:after {
+                                width: $fullwidth;
+                            }
+                        }
+                    }
+                    &:hover a {
+                        color: $green;
+                        &:after {
+                            width: $fullwidth;
+                        }
+                    }
+                }
+                ul {
+                    @include position(absolute, $top: 100%, $left: -9999px);
+                    overflow: hidden;
+                    padding-top: 27px;
+                    li {
+                        display: $block;
+                        margin: $zero !important;
+                        height: $zero;
+                        overflow: hidden;
+                        background: $white;
+                        @include transition(all 0.5s ease-in-out 0s);
+                        border-bottom: 1px solid $ofwhite;
+                        &.has-sub>a:after {
+                            content: '';
+                            @include position(absolute, $top: 16px, $left: auto, $right: 11px, $bottom: auto);
+                            width: ($zero + 8);
+                            height: ($zero + 2);
+                            display: $block;
+                            background: $white;
+                        }
+                        &.has-sub>a:before {
+                            content: '';
+                            @include position(absolute, $top: 13px, $left: auto, $right: 14px, $bottom: auto);
+                            display: $block;
+                            width: ($zero + 2);
+                            height: ($zero + 8);
+                        }
+                        &.has-sub:hover>a:before {
+                            top: ($zero + 17);
+                            height: $zero;
+                        }
+                        a {
+                            display: flex;
+                            align-items: center;
+                            padding: 8px $minmargin !important;
+                            min-width: 190px !important;
+                            height: $auto !important;
+                            color: $gray !important;
+                            text-transform: capitalize;
+                            &:hover {
+                                color: $green !important;
+                            }
+                            &:after {
+                                display: $none !important;
+                            }
+                            span {
+                                @include flex;
+                                width: 30px;
+                                height: 30px;
+                                @include prefixer (box-shadow, 0px 0px 7px rgba(0, 0, 0, 0.1), webkit moz o ms);
+                                @include border-radius(50%);
+                                padding: 4px;
+                                margin-right: 8px;
+                                img {
+                                    max-width: $fullwidth;
+                                    max-height: $fullwidth;
+                                }
+                            }
+                        }
+                        ul {
+                            margin-left: 100%;
+                            top: $zero !important;
+                            z-index: ($zindex - 830);
+                            &:after {
+                                display: $none;
+                            }
+                        }
+                        &:last-child {
+                            border: $zero;
+                        }
+                    }
+                }
+            }
+        }
+        /* End NavMenu */
+        .searchicon {
+            @include transition(all 0.5s ease-in-out 0s);
+            border: $zero;
+            cursor: pointer;
+            &:hover {
+                color: $gray;
+            }
+            @media (max-width:991px) {
+                @include position(absolute, $top: 11px, $right: 50px);
+                z-index: 10;
+                color: $blak;
+            }
+        }
+        .showboxsearch {
+            @include position(fixed, $top: 0px, $left: 0px);
+            width: $fullwidth;
+            height: $fullwidth;
+            z-index: 20;
+            background: rgba(0, 0, 0, 0.83);
+            display: $none;
+            .cancel-search {
+                @include position(absolute, $top: 30px, $right: 15px);
+                z-index: 100;
+                cursor: pointer;
+                &:before,
+                &:after {
+                    @include position(absolute, $top: 4px, $right: 0px);
+                    display: $block;
+                    height: 2px;
+                    width: 20px;
+                    background: $white;
+                    content: '';
+                    @include transition(all 0.3s ease-in-out 0s);
+                    @include rotate(-45deg);
+                }
+                &:after {
+                    @include rotate(45deg);
+                }
+            }
+            .innersearch {
+                @include position(relative, $top: 0px, $left: 0px);
+                width: $fullwidth;
+                height: $fullwidth;
+                padding: $minmargin;
+                @include flex;
+            }
+            .formsearch {
+                margin: $zero $auto;
+                width: 550px;
+                border: $zero;
+                position: relative;
+                height: 50px;
+                @media (max-width: 600px) {
+                    width: $fullwidth;
+                }
+                .form-control {
+                    @include input;
+                    width: $fullwidth;
+                    padding: $zero 60px $zero $minmargin;
+                    @include border-radius(60px);
+                    border: $zero;
+                }
+                .btn {
+                    width: 40px;
+                    height: 40px;
+                    @include position(absolute, $top: 5px, $right: 5px);
+                    background: $green;
+                    color: $white;
+                    @include border-radius(50%);
+                    @include transition(all 0.5s ease-in-out 0s);
+                    border: $zero;
+                    &:hover {
+                        background: $gray;
+                    }
+                }
+            }
+        }
+        .bottom {
+            @include bottom;
+            margin-left: $maxmargin+10px;
+            padding: 5px $minmargin;
+            @media (max-width: 991px) {
+                margin: $zero;
+                margin-right: 65px;
+                padding: $zero 10px;
+                font-size: 12px;
+                position: relative;
+                z-index: 10;
+            }
+            @media (max-width: 450px) {
+                display: $none;
+            }
+        }
+    }
+}
+
+// End Header
+@media (max-width:991px) {
+    .header {
+        &.sticky {
+            .menu {
+                #cssmenu {
+                    ul {
+                        top: 37px;
+                    }
+                }
+            }
+        }
+        .menu {
+            #cssmenu {
+                @include position(absolute, $right: 15px);
+                width: 200px;
+                #menu-button {
+                    display: $block;
+                }
+                ul {
+                    @include position(absolute, $top: 42px);
+                    width: $fullwidth;
+                    display: $none;
+                    background: $blak;
+                    z-index: 120;
+                    li {
+                        width: $fullwidth;
+                        margin: $zero !important;
+                        position: relative;
+                        height: $auto !important;
+                        a {
+                            width: $fullwidth;
+                            padding: 10px $minmargin;
+                            height: $auto;
+                            margin: $zero;
+                            color: $white;
+                            font-size: 16px;
+                            border-bottom: 1px solid #2d2c2c;
+                        }
+                        &:last-child {
+                            a {
+                                border: $zero;
+                            }
+                        }
+                    }
+                }
+                #menu-button {
+                    display: $block !important;
+                    cursor: pointer;
+                    float: $right;
+                    height: 20px;
+                    width: 20px;
+                    &:after {
+                        @include position(absolute, $top: 10px, $right: 0px);
+                        display: $block;
+                        height: 8px;
+                        width: 20px;
+                        border-top: 2px solid $blak;
+                        border-bottom: 2px solid $blak;
+                        content: '';
+                        @include transition(all 0.3s ease-in-out 0s);
+                    }
+                    &:before {
+                        @include position(absolute, $top: 4px, $right: 0px);
+                        display: $block;
+                        height: 2px;
+                        width: 20px;
+                        background: $blak;
+                        content: '';
+                        @include transition(all 0.3s ease-in-out 0s);
+                    }
+                    &.menu-opened:after {
+                        @include rotate(45deg);
+                        background: $red;
+                        top: 11px;
+                        border: $zero;
+                        height: 2px;
+                        width: 20px;
+                        @include transition(all 0.3s ease-in-out 0s);
+                    }
+                    &.menu-opened:before {
+                        @include rotate(-45deg);
+                        background: $red;
+                        top: 11px;
+                        width: 20px;
+                        @include transition(all 0.3s ease-in-out 0s);
+                    }
+                }
+                .submenu-button {
+                    @include position(absolute, $top: 0px, $right: 0px);
+                    display: $block;
+                    border-left: 1px solid rgba(120, 120, 120, 0.2);
+                    height: 48px;
+                    width: 48px;
+                    cursor: pointer;
+                    z-index: 10;
+                    &.submenu-button.submenu-opened {
+                        background: $green;
+                    }
+                }
+            }
+            #cssmenu ul ul li a {
+                border: $zero;
+                background: #dee6eb !important;
+            }
+            #cssmenu ul ul ul li a {
+                padding-left: 35px;
+            }
+            #cssmenu ul ul li a {
+                color: $white;
+                background: $none;
+            }
+            #cssmenu ul ul li:hover>a,
+            #cssmenu ul ul li.active>a {
+                color: $white;
+            }
+            #cssmenu ul ul,
+            #cssmenu ul ul ul,
+            #cssmenu.align-right ul ul {
+                position: relative !important;
+                left: 0px;
+                width: 100%;
+                top: 0px !important;
+                padding: 0px !important;
+                @include border-radius(0px);
+            }
+            #cssmenu>ul>li.has-sub>a:after,
+            #cssmenu>ul>li.has-sub>a:before,
+            #cssmenu ul ul>li.has-sub>a:after,
+            #cssmenu ul ul>li.has-sub>a:before {
+                display: $none;
+            }
+            #cssmenu ul ul .submenu-button {
+                height: 34px;
+                width: 34px;
+            }
+            #cssmenu .submenu-button:after {
+                @include position(absolute, $top: 23px, $right: 21px);
+                width: 8px;
+                height: 2px;
+                display: block;
+                background: $white;
+                content: '';
+            }
+            #cssmenu ul ul .submenu-button:after {
+                top: 15px;
+                right: 13px;
+            }
+            #cssmenu .submenu-button.submenu-opened:after {
+                background: $white;
+            }
+            #cssmenu .submenu-button:before {
+                @include position(absolute, $top: 20px, $right: 24px);
+                display: $block;
+                width: 2px;
+                height: 8px;
+                background: $white;
+                content: '';
+            }
+            #cssmenu ul ul .submenu-button:before {
+                top: 12px;
+                right: 16px;
+            }
+            #cssmenu .submenu-button.submenu-opened:before {
+                display: $none;
+            }
+        }
+    }
+}

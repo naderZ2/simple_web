@@ -1,0 +1,81 @@
+extend index
+
+block pageindex 
+ section.map-back
+  div.container
+    h1.title  Brands
+    ul.maplink
+     li 
+      a(href="index.html") home
+     li 
+      a(href="brands.html") brand
+     li Tekno Panel
+ <!-- End Section panner Top -->
+ section.brand-details
+  div.container
+   div.inner
+    div(class="row")
+     div(class="col-sm-4 item-details")
+      div.slider-prod
+       div.sample1
+        div.carousel
+         ul 
+          li 
+           a(href="images/teknopanel_logo2.jpg" title="" data-lcl-txt="" data-lcl-author="" data-lcl-thumb="images/teknopanel_logo2.jpg" class='elem')
+            span(style="background-image: url(images/teknopanel_logo2.jpg);")
+          li 
+           a(href="images/teknopanel_logo2.jpg" title="" data-lcl-txt="" data-lcl-author="" data-lcl-thumb="images/teknopanel_logo2.jpg" class='elem')
+            span(style="background-image: url(images/teknopanel_logo2.jpg);")  
+          li 
+           a(href="images/teknopanel_logo2.jpg" title="" data-lcl-txt="" data-lcl-author="" data-lcl-thumb="images/teknopanel_logo2.jpg" class='elem')
+            span(style="background-image: url(images/teknopanel_logo2.jpg);")  
+          li 
+           a(href="images/teknopanel_logo2.jpg" title="" data-lcl-txt="" data-lcl-author="" data-lcl-thumb="images/teknopanel_logo2.jpg" class='elem')
+            span(style="background-image: url(images/teknopanel_logo2.jpg);")  
+          
+       div.thumbnails
+        ul 
+         li #[img(src="images/teknopanel_logo2.jpg" alt="")]
+         li #[img(src="images/teknopanel_logo2.jpg" alt="")]
+         li #[img(src="images/teknopanel_logo2.jpg" alt="")]
+         li #[img(src="images/teknopanel_logo2.jpg" alt="")]
+     div(class="col-sm-7 item-details")
+      span.feature  brand shipping  
+      h3.title Browse The Sections On Cosmetics
+      div.item-rat
+       div.last-rat
+        ul.rating
+         li(class="fas fa-star active")
+         li(class="fas fa-star active") 
+         li(class="fas fa-star active")
+         li(class="fas fa-star")
+         li(class="fas fa-star")     
+        p #[b 3.5]  
+       
+      div.description
+        //- h4.title description
+        p Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry. Simply Dummy Text Of The Printing And Typesetting Industry.<br/><br/> Lorem Ipsum Ha Simply Dummy Text Of The Printing And Typesetting Industry.  Lorem Ipsum Ha Lorem Ipsum Has Been The Industry’s 
+    
+ //-  brand-details
+
+ section.brands.products
+  div(class='container')
+   h2.title  Products
+   p.text-center Browse the sections on cosmetics ,we provide you with all kinds of cosmetics
+   div.row
+    - for (var x = 0; x < 10; x++)
+       div.col-sm-3.item
+        div.brand-item  
+         a(href='brands-inner.html' class='photo') 
+          img(src="images/clothes.jpg" alt="Jegt Co" title="Jegt Co")
+         div(class='title-it') mens wear
+         a(href='#' class='bottom') #[i(class="fas fa-chevron-right")]  Read More
+   
+      
+     
+
+ 
+
+ 
+ 
+  

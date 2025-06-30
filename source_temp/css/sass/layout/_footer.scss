@@ -1,0 +1,170 @@
+.footer {
+    @include section;
+    background: $ofwhite;
+    padding: $zero;
+    @media (max-width: 991px) {
+        padding: $zero;
+    }
+    .letarnews {
+        background: $green;
+        padding: $maxmargin $zero;
+        position: relative;
+        width: $fullwidth;
+        @media (max-width: 991px) {
+            text-align: $senter;
+        }
+        .item {
+            @media (max-width: 991px) {
+                max-width: $fullwidth;
+                flex: $fullwidth;
+            }
+            .title-con {
+                color: $white;
+                b {
+                    color: $white;
+                    font-size: 28px;
+                    margin-bottom: 10px;
+                    display: block;
+                }
+            }
+            .sendemail {
+                position: relative;
+                overflow: hidden;
+                margin-top: 18px;
+                .form-control {
+                    height: 55px;
+                    border: $zero;
+                    padding: $zero 135px $zero $maxmargin;
+                    border-radius: $zero;
+                    color: #cbcbcb;
+                    border-bottom: 2px solid $white;
+                    background: url(../images/email.png) no-repeat center left;
+                }
+                 ::placeholder {
+                    /* Chrome, Firefox, Opera, Safari 10.1+ */
+                    color: #cbcbcb;
+                    /* Firefox */
+                }
+                 :-ms-input-placeholder {
+                    /* Internet Explorer 10-11 */
+                    color: #cbcbcb;
+                }
+                 ::-ms-input-placeholder {
+                    /* Microsoft Edge */
+                    color: #cbcbcb;
+                }
+                .bottom {
+                    @include bottom;
+                    height: 55px;
+                    border-radius: $zero;
+                    background: $white;
+                    color: $blak;
+                    @include position(absolute, $top: 0px, $right: -1px);
+                    &:hover {
+                        color: $white;
+                    }
+                }
+            }
+        }
+    }
+    .boxfot {
+        margin-top: $maxmargin;
+        @media (max-width: 991px) {
+            max-width: $fullwidth;
+            flex: $fullwidth;
+        }
+        .logo {
+            width: $fullwidth;
+            text-align: center;
+            margin-top: $maxmargin;
+            @media (max-width: 991px) {
+                margin-top: $zero;
+            }
+            img {
+                width: 170px;
+            }
+        }
+        .text {
+            width: $fullwidth;
+            text-align: center;
+            margin-top: $minmargin;
+        }
+        .title {
+            @include title;
+            font-size: 22px;
+            margin-bottom: $minmargin;
+            text-align: $left;
+            &::before {
+                display: $none;
+            }
+        }
+        .navmenu {
+            a {
+                @include hyprlink;
+            }
+        }
+        .social {
+            @include social;
+            margin-top: $minmargin;
+        }
+        .textcontact {
+            a,
+            p {
+                display: $block;
+                width: $fullwidth;
+                margin-bottom: 5px;
+                @include transition(all 0.5s ease-in-out 0s);
+                position: relative;
+                padding-left: 25px;
+                &:last-child {
+                    margin: $zero;
+                }
+                i {
+                    @include position(absolute, $left: 0px, $top: 7px);
+                    color: $green;
+                }
+            }
+            a:hover {
+                color: $green;
+            }
+        }
+    }
+    .copyright {
+        @include flex;
+        position: relative;
+        margin-top: $maxmargin;
+        padding: $minmargin $zero;
+        border-top: 1px solid #ced4da;
+        @media (max-width: 767px) {
+            display: $block;
+        }
+        p {
+            @media (max-width: 767px) {
+                width: $fullwidth;
+                text-align: $senter;
+            }
+            span {
+                color: $green;
+            }
+        }
+    }
+    .scrollToTop {
+        @include bottom;
+        width: 50px;
+        height: 50px;
+        padding: $zero;
+        @include border-radius(50%);
+        @include position(fixed, $right: 15px, $bottom: 15px);
+        display: $none;
+        border: $zero;
+        z-index: $zindex;
+        color: $white;
+        padding-top: 11px;
+        @media (max-width: 991px) {
+            display: $none !important;
+        }
+        &:hover {
+            border: $zero;
+        }
+    }
+}

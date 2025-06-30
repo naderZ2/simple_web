@@ -1,0 +1,17 @@
+.slider{
+  float: $right;
+  width: $fullwidth;
+  background: $gray;
+  clear: both;
+  overflow: hidden;
+  margin-top: -30px;
+
+ .container {
+   @include position(absolute, $top: 30%, $left:0 , $right:0);
+   margin:$zero $auto;
+   z-index: $zindex;
+   min-height: 205px;
+   text-align: center;
+   align-items: center;
+ }
+}

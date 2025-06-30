@@ -1,0 +1,48 @@
+extend index
+
+block pageindex 
+ section(class="map-back")
+   div.container
+    h1.title إتصل بنا
+ section(class='contactus')
+   div.container
+    div.row
+     div.col-sm-8.contac-ti
+      h3.title راسلنا عبر البريد الالكترونى
+      p.text يمكنك إرسال رساله عبر البريد الإلكتروني وسوف يتم الرد عليك خلال 24 ساعة من وقت إرسال الرسالة
+      form(action="#" method="")
+       div.row
+        div(class="col-sm-6 inpudata")
+         input(type="text" name="" class="form-control" placeholder=" الأسم بالكامل")
+        div(class="col-sm-6 inpudata")
+         input(type="email" name="" class="form-control" placeholder="البريد الإلكترونى")
+        div(class="col-sm-12 inpudata")
+         select(class="form-control")
+          option  أختر الموضوع
+          option  شكوى
+          option  استفسار
+          option  طلب صيانة
+        div(class="col-sm-12 inpudata")
+         textarea(name="" class="form-control" placeholder="رسالتك")
+        div(class="col-sm-12 inpudata")
+         button(class="bottom" type="submit") ارسل الان
+     div.col-sm-4.contac-ti   
+      div.contactext
+       h3.title التليفون
+       p.textphon 
+        a(href='tel:0201027497576') 01027497576
+        a(href='tel:0201150846869') 01150846869
+        a(href='tel:0201207966136') 01207966136
+      div.contactext
+        h3.title العنوان
+        p.textphon   القومية العربية جمهورية مصر العربية 15
+      div.contactext
+       h3.title البريد الإلكترونى
+       p.textphon 
+        a(href="#")   info@yahoo.com 
+ section(class="map")
+   iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3451.801191573542!2d31.319043685361184!3d30.099879622907654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14581586871aaaa7%3A0x7b395c4438bbd19!2sghonem+travel!5e0!3m2!1sar!2seg!4v1566157603351!5m2!1sar!2seg" allowfullscreen="")
+ include ../pugjs/rowcontacts.pug
+ <!--End rowcontacts-->
+    
+ 

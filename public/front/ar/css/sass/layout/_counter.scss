@@ -1,0 +1,51 @@
+ .counter {
+     @include section;
+     overflow: hidden;
+     padding: $maxmargin*2 $zero;
+     background: $blue url(../images/counter.jpg) no-repeat fixed center center/cover;
+     &:before {
+         @include overlay;
+         background: rgba(0, 0, 0, 0.82);
+     }
+     .title {
+         @include title;
+         color: $white;
+     }
+     .count-it {
+         margin-top: $maxmargin*3;
+         text-align: center;
+         border-right: 1px solid #53534d;
+         @media (max-width: 991px) {
+             max-width: 33.333%;
+             flex: 33.333%;
+             margin-top: 55px;
+         }
+         @media (max-width: 667px) {
+             max-width: $fullwidth;
+             flex: $fullwidth;
+             border: $zero;
+         }
+         &:last-child {
+             border: $zero;
+         }
+         .title-number {
+             display: $inline;
+             width: $fullwidth;
+             color: $green;
+             font-weight: bold;
+             font-size: 50px;
+             margin-bottom: $minmargin;
+             @media (max-width: 991px) {
+                 font-size: 30px;
+                 margin-bottom: $zero;
+             }
+         }
+         .count-text {
+             font-size: 20px;
+             color: $ofwhite;
+             @media (max-width: 991px) {
+                 font-size: 16px;
+             }
+         }
+     }
+ }

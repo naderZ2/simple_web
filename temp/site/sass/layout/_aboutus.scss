@@ -1,0 +1,53 @@
+.aboutus{
+  @include section;
+  background:$blue url(../images/aboutus-s.jpg) no-repeat fixed top center/cover;
+  overflow: hidden;
+  padding-top: $zero;
+  @media (max-width: 991px){
+      padding-top: $zero;
+   }
+    .aboutus-it {
+       margin-top: $maxmargin;
+       @media (max-width: 991px){
+         max-width: $fullwidth;
+         flex:$fullwidth;
+         margin-top: $minmargin;
+        }
+       img{
+         width: $fullwidth;
+        }
+
+       .title-ab,.title-twe{
+         display:$inline;
+         width: $fullwidth;
+         color: $blue;
+         font-size: 30px;
+         @media (max-width:991px){
+           font-size:22px;
+          }
+        }
+        .title-twe{
+          color: $blak;
+          font-size: 22px;
+          margin-top: $minmargin;
+          @media (max-width:991px){
+           font-size:20px;
+          }
+        }
+       .text{
+         margin-top: 10px;
+         color:$colortext;
+         line-height: 30px;
+        }
+        .bottom{
+          @include bottom;
+        }
+   }
+ }
+///* End aboutus
+.terms{
+  @extend .aboutus ;
+     .terms-it {
+       @extend  .aboutus-it ;
+     }
+}

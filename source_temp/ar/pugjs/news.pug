@@ -1,0 +1,48 @@
+extend index
+
+block pageindex 
+ section.map-back
+   div.container
+    h1.title  الأخبار
+    ul.maplink
+     li 
+      a(href="index.html") الرئيسية
+     li الأخبار
+ <!-- End Section panner Top -->
+ section.news
+  div.container
+   h2.title الأخبار
+   p.text-center يتم إنتاج العديد من الحلول البرمجية حاليًا في مراحل مختلفة.
+   div(class='row')
+    - for (var x = 0; x < 4; x++)
+       div(class="col-sm-6 itmenews")
+        div.news-itme   
+         div.hovereffect
+           img(src="../images/slides/img3.jpg" alt="Jegt Co" title="Jegt Co")
+           div.overlay #[a(href="news-inner.html") قراءة المزيد ] 
+         a(href='news-inner.html' class='title-it') تنظيف القتالية
+         p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellent esque dignissim eros a sapien tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellent esque dignissim eros a sapien tempus.
+   ul(class="pagination w-100")
+      li(class="page-item")
+       a(class="page-link" href="#") #[i(class="fas fa-angle-right")] 
+      li(class="page-item")
+       a(class="page-link active" href="#") 1 
+      li(class="page-item")
+       a(class="page-link" href="#") 2
+      li(class="page-item")
+       a(class="page-link" href="#") 3
+      li(class="page-item")
+       a(class="page-link" href="#") #[i(class="fas fa-angle-left")]    
+ <!-- End menus-section -->      
+     
+
+
+
+
+
+
+
+
+
+
+

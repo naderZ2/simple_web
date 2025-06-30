@@ -1,0 +1,432 @@
+@import 'helpers/mixins';
+@import 'helpers/variables';
+@import 'layout/header';
+@import 'layout/slider';
+ 
+
+
+$direction:ltr;
+$right:left;
+$left:right;
+
+
+body{
+  direction: $direction;
+  text-align: $right;
+  text-transform: capitalize;
+}
+
+
+.header {
+  float: $right;
+ 
+   .minheeader{
+     float: $right;
+    
+     .social{
+        float: $right;
+        a {
+          margin-left: $zero;
+           margin-right: 15px;      
+          }
+     }
+     .linkstop{
+       float: $left;
+ 
+       a{
+         float: $left;
+         padding-right: $zero;
+         margin-right: $zero;
+         border-right: $zero;
+         padding-left: 15px;
+         margin-left: 15px;
+         border-left: 1px solid $blue;
+         i{
+            float: $left;
+            margin-left: 5px;
+         }
+        @media (max-width:767px) {
+           padding-left: $zero;
+           margin-left: $zero;
+           border-left: $zero;
+          }
+        }
+        p{
+          i{
+            float: $left;
+            margin-left: 5px;
+         }
+        }
+      }
+   }
+
+ 
+  .logo {
+    float: $right;
+  }
+  .contactbot{
+    float: $left;
+    padding-right:$zero;
+    padding-left: 50px;
+     @media (max-width:991px) {
+       padding-left: 35px;
+      }
+     img{
+      @include position(absolute, $top: 16px, $right:auto,$left:0px);
+     }
+  }
+  .navmenu{
+    float: $right;
+    #cssmenu {
+      float: $right;
+      @include position(relative);
+      z-index: 10;   
+      padding-right:5px;
+      @include transition(all 0.5s ease-in-out 0s);
+      #menu-button{
+      display: $none;
+      }
+
+      ul {
+      float: $right;
+      li {
+      float: $right;
+      margin-left:$zero;
+      margin-right:$maxmargin+$minmargin;
+      &:hover > ul {
+        left: $auto;
+      }
+      }
+      ul {
+        @include position(absolute, $top: 100%, $right:auto, $left:-9999px);
+        margin-right:  $zero;
+        margin-left: -71px;
+        @media (max-width:991px) {
+          right:  $auto;
+          left:  $zero;
+          position: relative;
+          margin: $zero;
+         }
+
+        li {
+          &.has-sub > a:after {
+           content: '';
+           @include position(absolute, $top: 16px, $left:11px , $right:auto , $bottom:auto);
+         }
+          &.has-sub > a:before {
+          content: '';
+          @include position(absolute, $top: 13px, $left:14px , $right:auto , $bottom:auto);
+         
+          }
+
+          ul {
+          margin-left:$zero;
+          margin-right: 100%;
+          top: $zero !important;
+         }
+        }
+       }
+      }
+    }
+    .bottom{
+      float: $left;
+    }
+  }
+}
+
+
+
+@media (max-width:991px) {
+  .header {
+    .contactbot img {
+      top: 0px;
+     }
+   .navmenu{
+    #cssmenu {
+      width: 200px;
+      @include position(absolute, $right:auto,$left:15px );
+      z-index: 100;
+      padding-right: $zero;
+      padding-left: $zero;
+ 
+      #menu-button {
+       cursor: pointer;
+       float: $right;
+       display: $block;
+     
+       &:after {
+         @include position(absolute,$right:auto ,$left:0px );
+          content: '';
+       }
+       &:before {
+         @include position(absolute, $top: 4px, $right:auto ,$left:0px  );
+           content: '';
+        }
+ 
+     }
+     .submenu-button {
+       @include position(absolute, $top: 0px, $left:auto,$right:0px);
+       border-right: $zero;
+       border-left: 1px solid rgba(120, 120, 120, 0.2);
+     }
+    }
+    }
+  }
+}
+
+.slider{
+  float: $right;
+}
+
+.tp-caption.grey_heavy_72,.tp-caption.grey_regular_18{
+  right: $auto !important;
+  left: $zero !important;
+}
+
+
+
+.services{
+  @include section;
+ 
+
+
+   .serv-itme{
+ 
+    .maintenance{
+      float: $left;
+ 
+    }
+  }
+}
+/// End Section Services
+.brands{
+ @extend .services ;
+ 
+ .brand-itme{
+   @extend .serv-itme ;
+   .logobeand{
+      float: $left;
+   }
+ }
+}
+/// End Brands
+.brand-details{
+  @extend .aboutus ;
+  .details-it{
+    @extend .aboutus-it ;
+  }
+ }
+/// End Brand Details
+.brand-video{
+ @include section;
+ 
+ .video {
+  &:after{
+    @include overlay;
+  }
+ 
+ .cd-single-point {
+   
+    &::after {
+      content: '';
+      @include position(absolute,$top:0,$left:auto, $right:0);
+     
+    }
+ 
+   .innerbc {
+      @include position(absolute,$top:10px,$left:auto ,$right:10px );
+    } 
+  }
+ }
+}
+
+.YouTubePopUp-Wrap {
+  @include position(fixed,$top:0px,$left:auto ,$right:0px );
+  .YouTubePopUp-Close {
+    @include position(absolute,$right:auto,$left:0px );
+  }
+}
+ 
+/// End Brand Video
+
+
+ 
+.aboutus{
+  @include section;
+ 
+    .aboutus-it {
+ 
+        .bottom{
+          @include bottom;
+        }
+   }
+ }
+///* End aboutus
+.terms{
+  @extend .aboutus ;
+     .terms-it {
+       @extend  .aboutus-it ;
+     }
+}
+
+ 
+.rowcontacts{
+  @include section;
+  padding: $zero;
+ 
+ 
+  &:after{
+    @include overlay ;
+    right: $auto;
+    left: $zero;
+    width: 30%;
+ 
+    @media (min-width: 3400px){
+     width: 45%;
+     }
+     @media (max-width: 991px){
+       width: $fullwidth;
+       height: 57%;
+      }
+      @media (max-width: 767px){
+       height: 60%;
+      }
+      @media (max-width:575px){
+        display: $none;
+       }
+     }
+ 
+   .serv-it {
+    &:first-child{
+   
+     &:after{
+       @include overlay ;
+       top: -15px;
+       left: $auto;
+       right: -50px;
+       width: 60%;
+       height: 190%;
+       background: $yellow;
+       z-index: -1;
+       @include rotate(-30deg);
+    
+     }
+   }
+   &:last-child{
+     padding-right: $zero;
+     padding-left: 150px;
+     @media (max-width: 991px){
+       padding-left: $minmargin;
+      }
+   }
+ 
+
+  .title-cont{
+    display:$inline;
+    background: url(../images/cont.png) no-repeat left;
+    padding-right: $zero;
+    padding-left: 70px;
+ 
+    @media (max-width: 991px){
+      background: url(../images/cont.png) no-repeat top center;
+      padding: 55px $zero $zero $zero ; 
+     }
+   }
+ 
+  }
+ }
+
+.contactus{
+   @include section;
+   .contac-ti{
+ 
+     .title{
+       &::after {
+          content: '';
+          @include position(absolute,  $right:auto,$left:0px);
+       }
+      }
+ 
+      .inpudata  {
+        float: $right;
+      }
+    }
+ }
+.map{
+  @include section;
+   iframe {
+     float: $right;
+  }
+ }
+
+ 
+.footer{
+  @include section;
+    padding:$zero;
+     &:before{
+      @include overlay ;
+      background:rgba(3, 47, 82, 0.92);
+    }
+    @media (max-width:991px) {
+      padding:$zero;
+     }
+ 
+   .boxfot{
+    margin-top: $maxmargin;
+    @media (max-width:767px) {
+    max-width: $fullwidth;
+    flex: $fullwidth;
+    }
+   .title{
+     @include title;
+      font-size:23px;
+      color: $white;
+      text-align:$right;
+   
+       &:before {
+        @include position(absolute,  $right:auto ,$left:0px,  );
+        width: 50px;
+        height: 2px;
+        background:$yellow;
+        margin: $zero;
+      }
+    }
+   .navlast{
+     a{
+       @include hyprlink ;
+         padding-right: $zero;
+      padding-left: 10px;
+         &:before {
+          right: $auto;
+          left: 0;
+          content: "\f105";
+      }
+       
+     }
+   }
+ 
+   .social{
+     @include social;
+     float: $right;
+     a{
+       margin: $zero  3px $zero $zero;
+     }
+   }
+ 
+ }
+
+ 
+   .scrollToTop {
+    @include position(fixed, $right:auto , $left:15px, );
+  }
+
+}
+
+
+
+
+
+ 
+ 
+ 
+ 

@@ -1,0 +1,35 @@
+ .error404 {
+     @include section;
+     @include flex;
+     height: 400px;
+     text-align: $senter;
+     .title {
+         @include title;
+         font-size: 140px;
+         margin-bottom: 40px;
+         &:before,
+         &:after {
+             display: $none;
+         }
+         @media (max-width:991px) {
+             font-size: 120px;
+         }
+     }
+     p {
+         @include section;
+         color: $green;
+         font-size: 30px;
+         padding: $maxmargin $zero !important;
+         @include transition(all 0.5s ease-in-out 0s);
+         @media (max-width: 991px) {
+             font-size: 25px;
+         }
+     }
+     .bottom {
+         @include bottom;
+         float: $none;
+         display: $inline;
+     }
+ }
+ 
+ //* End Error404

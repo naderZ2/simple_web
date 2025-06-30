@@ -1,0 +1,15 @@
+section.clients
+ div(class='container')
+  h2.title  Happy Clients  
+  p.text-center Browse the sections on cosmetics ,we provide you with all kinds of cosmetics
+  div.clients-slider
+   - for (var x = 0; x < 8; x++)
+       div.client-item
+        a(href='clients-inner.html' class='photo') 
+         img(src="images/teknopanel_logo2.jpg" alt="Jegt Co" title="Jegt Co")
+        div(class='title-it') Tekno Panel
+        p.text Browse the sections on cosmetics ,we provide you 
+        a(href='clients-inner.html' class='bottom') #[i(class="fas fa-chevron-right")]  Read More
+ 
+      
+//- End clients

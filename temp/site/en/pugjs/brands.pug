@@ -1,0 +1,16 @@
+extend index
+
+block pageindex 
+ section(class="map-back")
+  div.container
+   h1.title Brands
+ section.brands
+  div(class='container')
+    h2.title  Maintenance service for all brands
+    div(class='row')
+     - for (var x = 0; x < 9; x++)
+        div(class="col-sm-4 brand-itme")
+          a(href='brands-inner.html' class='logobeand')
+            img(src='../images/toshiba.png' alt="")
+ include ../pugjs/rowcontacts.pug
+ <!--End rowcontacts-->   

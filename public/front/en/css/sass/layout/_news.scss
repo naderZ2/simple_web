@@ -1,0 +1,216 @@
+ .news {
+     @include section;
+     .title {
+         @include title;
+     }
+     p.text-center {
+         margin-top: $maxmargin;
+     }
+     .news-slider {
+         width: $fullwidth;
+         @include position(relative);
+         margin-top: $maxmargin;
+         @media (max-width: 991px) {
+             margin-top: $minmargin;
+         }
+         .slick-list {
+             @include position(relative);
+             display: $block;
+             overflow: hidden;
+             outline: $none;
+             margin: $zero -15px;
+             .slick-track {
+                 @include position(relative, $top: 0, $left: auto, $right: auto, $bottom: auto);
+                 display: $block;
+                 overflow: hidden;
+                 &:after,
+                 &:before {
+                     display: table;
+                     content: '';
+                 }
+             }
+             /// End .slick-track
+         }
+         /// End .Slick-list
+         .slick-prev,
+         .slick-next {
+             @include position(absolute, $top: -75px, $right: 0px);
+             width: 40px;
+             height: 40px;
+             cursor: pointer;
+             border: $zero;
+             padding: $zero;
+             outline: $none;
+             font-size: $zero;
+             @include transition(all 0.5s ease-in-out 0s);
+             background: $yellow url(../images/right-arrow.png) no-repeat center center;
+             display: $none !important;
+             @media (max-width: 991px) {
+                 display: $none !important;
+             }
+             &:hover {
+                 background: $red url(../images/right-arrow.png) no-repeat center center;
+             }
+         }
+         .slick-prev {
+             right: $auto;
+             right: 41px;
+             @include rotate(180deg);
+         }
+         .slick-dots {
+             position: relative;
+             width: $fullwidth;
+             padding: $zero;
+             text-align: center;
+             margin-top: $minmargin++5px;
+             li {
+                 position: relative;
+                 display: $inline;
+                 width: 15px;
+                 height: 4px;
+                 margin: $zero 2px;
+                 padding: $zero;
+                 cursor: pointer;
+                 background: $ofwhite;
+                 button {
+                     font-size: $zero;
+                     line-height: $zero;
+                     display: $block;
+                     width: 15px;
+                     height: 15px;
+                     cursor: pointer;
+                     color: transparent;
+                     border: $zero;
+                     outline: $none;
+                     background: transparent;
+                 }
+             }
+             li.slick-active {
+                 background: $green;
+             }
+         }
+     }
+     .photonews {
+         width: $fullwidth;
+         margin-top: $minmargin;
+         img {
+             width: $fullwidth;
+         }
+     }
+     .contant {
+         margin-top: $minmargin;
+         .title-it {
+             display: $block;
+             width: $fullwidth;
+             color: $blak;
+             font-size: 24px;
+         }
+         p {
+             width: $fullwidth;
+             margin-top: 10px;
+         }
+     }
+ }
+ 
+ .news-itme {
+     display: $inline;
+     position: relative;
+     overflow: hidden;
+     margin: $zero $minmargin;
+     background: $white;
+     @include transition(all 0.5s ease-in-out 0s);
+     .title-it {
+         display: $block;
+         width: $fullwidth;
+         color: $blak;
+         white-space: nowrap;
+         overflow: hidden;
+         text-overflow: ellipsis;
+         font-size: 24px;
+         height: 28px;
+         overflow: hidden;
+         margin-top: $minmargin;
+         @include transition(all 0.5s ease-in-out 0s);
+         &:hover {
+             color: $green;
+         }
+         @media (max-width:767px) {
+             height: $auto;
+         }
+     }
+     p {
+         width: $fullwidth;
+         height: 85px;
+         overflow: hidden;
+         margin-top: 10px;
+         @media (max-width: 1280px) {
+             height: $auto;
+             overflow: inherit;
+         }
+     }
+     .hovereffect {
+         width: $fullwidth;
+         padding-top: 50%;
+         overflow: hidden;
+         position: relative;
+         text-align: center;
+         img {
+             @include position(absolute, $top: 0, $left: 0);
+             width: $fullwidth;
+             min-height: $fullwidth;
+             @include transition(all 0.5s ease-in-out 0s);
+         }
+         .overlay {
+             @include position(absolute, $top: 10%, $left: 10%);
+             overflow: hidden;
+             width: 80%;
+             height: 80%;
+             @include flex;
+             border-bottom: 1px solid $white;
+             border-top: 1px solid $white;
+             @include transition(all 0.5s ease-in-out 0s);
+             -webkit-transform: scale(0, 1);
+             -ms-transform: scale(0, 1);
+             transform: scale(0, 1);
+         }
+         &:hover {
+             .overlay {
+                 opacity: 1;
+                 filter: alpha(opacity=100);
+                 -webkit-transform: scale(1);
+                 -ms-transform: scale(1);
+                 transform: scale(1);
+             }
+             a {
+                 opacity: 1;
+                 color: $white;
+                 filter: alpha(opacity=100);
+                 -webkit-transform: translate3d(0, 0, 0);
+                 transform: translate3d(0, 0, 0);
+                 @include transition(all 0.5s ease-in-out 0s);
+                 &:hover {
+                     color: $green;
+                 }
+             }
+             img {
+                 filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="linear" slope="0.6" /><feFuncG type="linear" slope="0.6" /><feFuncB type="linear" slope="0.6" /></feComponentTransfer></filter></svg>#filter');
+                 filter: brightness(0.7);
+                 -webkit-filter: brightness(0.3);
+             }
+         }
+     }
+ }
+ 
+ .itmenews {
+     margin-top: $maxmargin;
+     @media (max-width: 991px) {
+         max-width: $fullwidth;
+         flex: $fullwidth;
+     }
+     .news-itme {
+         margin: $zero;
+         width: $fullwidth;
+     }
+ }
+ 
+ ///* End Offers

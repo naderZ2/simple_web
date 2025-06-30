@@ -1,0 +1,34 @@
+extend index
+
+block pageindex 
+ section.map-back
+   div.container
+    h1.title about us
+    ul.maplink
+     li 
+      a(href="index.html") home
+     li about us
+ <!-- End Section panner Top -->
+ section.aboutus  
+  div.container
+   div.row
+    div.col-sm-6.item
+     img(src='images/aboutus.jpg' alt="Jegt Co" title="Jegt Co")   
+    div.col-sm-6.item.text-contant
+     div.inner-ab
+      h3.title about us 
+      p.text Lorem Ipsum Has Been The Industry’s Standard Dummy Text Lorem Ipsum Has Been The Industry’s Standard Dummy Text Lorem Ipsum Has Been The Industry’s Standard Dummy Text <br/><br/>  Lorem Ipsum Has Been The Industry’s Standard Dummy Text Lorem Ipsum Has Been The Industry’s Standard Dummy Text<br/><br/>  Lorem Ipsum Has Been The Industry’s Standard Dummy Text Lorem Ipsum Has Been The Industry’s Standard Dummy Text
+ include ../pugjs/counter.pug
+ <!--End counter-->
+//-  section.our-team  
+  div.container
+    h2.title Our team
+    p.text-center Browse the sections on cosmetics ,we provide you with all kinds of cosmetics
+    div.row
+     - for (var x = 0; x < 8; x++)
+         div.col-sm-3.item
+           div.inner
+            img(src="images/team.jpg" alt="Jegt Co" title="Jegt Co")
+            h5.title mohamed Ahmed
+            small.sku front end developer
+            p Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry.  

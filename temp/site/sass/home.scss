@@ -1,0 +1,62 @@
+@import 'helpers/mixins';
+@import 'helpers/variables';
+@import 'layout/header';
+@import 'layout/slider';
+@import 'layout/services';
+@import 'layout/aboutus';
+@import 'layout/contactus';
+@import 'layout/footer';
+
+
+html, body, h1, h2, h3, h4, h5, h6, p, a, img, ul, li, hr, strong, b, input, select, textarea, .highcharts-title,
+ .highcharts-axis-labels, .highcharts-yaxis-title {
+ 	@include reset;
+ }
+
+body{
+  direction: $direction;
+  text-align: $right;
+  background: $white;
+}
+.container {
+    clear:both;
+    @include position(relative);
+    z-index: 10;
+}
+
+
+
+.map-back{
+  @include map-back;
+}
+
+
+.pagination {
+   margin-top: $maxmargin;
+  justify-content: $senter;
+ li{
+   display: $inline;
+   margin: $zero 3px;
+   a,span {
+     display: $block;
+    padding-top: 10px;
+    text-align: $senter;
+   	color: $blak;
+   	@include border-radius(4px!important);
+   	width: 40px;
+   	height: 40px;
+    display: $block;
+   	border:$zero;
+    background: $ofwhite;
+    font-size: 16px;
+    @include transition(all 0.5s ease-in-out 0s);
+    @include prefixer (box-shadow, 0px 1px 1px #b3b3b3, webkit moz o ms);
+   }
+ }
+ .page-link.active,.page-link:hover{
+  background:$yellow !important;
+  color: $white !important;
+ }
+}
+ 
+///* End Pagination

@@ -1,0 +1,189 @@
+ 
+.rowcontacts{
+  @include section;
+  padding: $zero;
+  overflow: hidden;
+  background:$blue url(../images/slides/img3.jpg) no-repeat fixed center center/cover;
+  @media (max-width:575px){
+    padding-top: $zero;
+   }
+  &:before{
+    @include overlay ;
+    background:rgba(3, 47, 82, 0.92);
+  }
+  &:after{
+    @include overlay ;
+    left: $auto;
+    right: $zero;
+    width: 30%;
+    background:$yellow;
+    z-index: 1;
+    @media (min-width: 3400px){
+     width: 45%;
+     }
+     @media (max-width: 991px){
+       width: $fullwidth;
+       height: 57%;
+      }
+      @media (max-width: 767px){
+       height: 60%;
+      }
+      @media (max-width:575px){
+        display: $none;
+       }
+     }
+ 
+   .serv-it {
+    padding: $maxmargin $minmargin;
+    &:first-child{
+     background: $yellow;
+     @media (max-width: 991px){
+      text-align: $senter;
+      padding: $minmargin;
+     }
+     &:after{
+       @include overlay ;
+       top: -15px;
+       left: -50px;
+       width: 60%;
+       height: 190%;
+       background: $yellow;
+       z-index: -1;
+       @include rotate(30deg);
+       @media (max-width: 991px){
+        display: $none;
+       }
+     }
+   }
+   &:last-child{
+     padding-right: 150px;
+     @media (max-width: 991px){
+       padding-right: $minmargin;
+      }
+   }
+    @media (max-width: 991px){
+      max-width: $fullwidth;
+      flex:$fullwidth;
+    }
+
+  .title-cont{
+    display:$inline;
+    background: url(../images/cont.png) no-repeat right;
+    width: $fullwidth;
+    color:$blue;
+    font-size: 22px;
+    padding-right: 70px;
+    line-height: 35px;
+     @media (max-width: 1199px){
+       font-size: 20px;
+    }
+    @media (max-width: 991px){
+      background: url(../images/cont.png) no-repeat top center;
+      padding: 55px $zero $zero $zero ; 
+     }
+   }
+   .phonenambuer{
+     width: $fullwidth;
+     text-align: $senter;
+     margin-top: 20px;
+     a{
+       display: $inline;
+       color: $white;
+       margin: $zero $minmargin;
+       font-size: 22px;
+       @include transition(all 0.5s ease-in-out 0s);
+       &:hover{
+         color: $yellow;
+       }
+      @media (max-width: 1199px){
+       font-size: 19px;
+       margin: $zero 5px;
+      }
+     }
+   }
+  }
+ }
+
+.contactus{
+   @include section;
+   background: $ofwhite;
+   padding-top: $zero!important;
+   .contac-ti{
+     margin-top: $maxmargin;
+     @media (max-width:991px) {
+       max-width: $fullwidth;
+       flex: $fullwidth;
+       }
+     .title{
+       font-size:30px;
+       color: $blak;
+       @include position(relative);
+       padding-bottom: 20px;
+       @media (max-width:991px) {
+        font-size:25px;
+        }
+        &::after {
+          content: '';
+          @include position(absolute, $bottom: 0,$right:0px);
+          z-index: 1;
+          height: 3px;
+          background: $blue;
+          width: 60px;
+       }
+      }
+      .text{
+        margin-top: $minmargin;
+        line-height: 28px;
+      }
+      .inpudata  {
+        float: $right;
+        margin-top: $minmargin;
+        position: relative;
+        .form-control{
+          @include input;
+        }
+        textarea.form-control{
+           height: 160px;
+           resize: $none;
+        }
+        .bottom{
+          @include bottom;
+          margin: $zero;
+        }
+      }
+     .contactext{
+        margin-bottom: $maxmargin;
+       &:last-child{
+         margin-bottom: $zero;
+       }
+       .title{
+          font-size: 20px;
+          border-bottom: 1px solid #ccc;
+          padding-bottom: $minmargin;
+        }
+        .textphon{
+          margin-top: $minmargin;
+          a{
+            display: $block;
+            @include transition(all 0.5s ease-in-out 0s);
+            color: $blak;
+            &:hover{
+            color:$yellow;
+            }
+          }
+        }
+     }
+
+    }
+ }
+.map{
+  @include section;
+  background: $white;
+  padding: $zero!important;
+   iframe {
+     float: $right;
+     border: $zero;
+     width: $fullwidth;
+     height: 455px;
+  }
+ }
